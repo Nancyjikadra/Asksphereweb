@@ -1,0 +1,9 @@
+Flask
+torch
+transformers
+whisper
+sentence-transformers
+scikit-learn
+librosa
+moviepy
+numpy
