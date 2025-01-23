@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 app = Flask(__name__)
 
 # Google Drive shareable link for model
-DRIVE_MODEL_LINK = 'https://drive.google.com/file/d/1c81xUHgZOAak5etD5K2WjPqP0RzXL9Xc/view?usp=drive_link'
+DRIVE_MODEL_LINK = os.getenv('DRIVE_MODEL_LINK')
 
 # Load model globally
 try:
@@ -36,8 +36,8 @@ def predict():
 
         # Define video paths (use cloud storage links)
         video_paths = [
-            'https://drive.google.com/file/d/15sd4hFYjTR6ReyXS_XG3vYL56b-2ONP9/view?usp=sharing,
-            'https://drive.google.com/file/d/1-kf3-mbgm6Sz2nxTlduiYCXY3-0CQk0U/view?usp=sharing'
+            os.getenv('VIDEO_PATH_1', 'default_video_path'),
+            os.getenv('VIDEO_PATH_2', 'default_video_path')
         ]
 
         # Process question
