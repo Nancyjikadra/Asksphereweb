@@ -1,0 +1,52 @@
+/* Dark and Light Theme Variables */
+:root[data-theme="dark"] {
+    --bg-primary: linear-gradient(to bottom right, #0c0c1d, #1a1a2e);
+    --bg-secondary: rgba(26, 26, 46, 0.8);
+    --text-primary: #fff;
+    --text-secondary: rgba(255, 255, 255, 0.6);
+    --accent: #10b981;
+}
+
+:root[data-theme="light"] {
+    --bg-primary: linear-gradient(to bottom right, #f0f0f5, #ffffff);
+    --bg-secondary: rgba(255, 255, 255, 0.8);
+    --text-primary: #1a1a2e;
+    --text-secondary: rgba(26, 26, 46, 0.6);
+    --accent: #10b981;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+}
+
+.w3-bar {
+    background: var(--bg-secondary);
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.welcome-section {
+    text-align: center;
+    padding: 180px 20px 100px;
+}
+
+.about-section {
+    padding: 80px 20px;
+    background: var(--bg-secondary);
+}
+
+.footer {
+    background: var(--bg-secondary);
+    padding: 40px 20px;
+}
