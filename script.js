@@ -6,6 +6,7 @@ function toggleTheme() {
 }
 
 async function getAnswer(question) {
+    try {
         const response = await fetch("https://nxnccy-ask.hf.space/api/predict", {
             method: "POST",
             headers: {
@@ -21,7 +22,11 @@ async function getAnswer(question) {
 
         const result = await response.json();
         console.log("API Response:",result);
-        return result;    
+        return result;  
+    } catch (error) {
+        console.error("Fetch Error:", error);
+        throw error;
+    }
 }
 
 document.getElementById('questionForm').onsubmit = async function (e) {
