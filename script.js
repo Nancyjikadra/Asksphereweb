@@ -6,20 +6,28 @@ function toggleTheme() {
 }
 
 async function getAnswer(question) {
-    const response = await fetch("https://huggingface.co/spaces/nxnccy/ask", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ question }),
-    });
+    try{
+        const response = await fetch("https://huggingface.co/spaces/nxnccy/ask", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ question }),
+        });
 
-    if (!response.ok) {
-        throw new Error("Failed to fetch answer from the server.");
+        if (!response.ok) {
+            console.error("Error status:", response.status, response.statusText);
+            throw new Error("Failed to fetch answer from the server.");
+        }
+
+        const result = await response.json();
+        console.log("API Response:",result);
+        return result;
     }
-
-    const result = await response.json();
-    return result;
+    catch (error){
+        console.error("Fetch Eroor:",error);
+        throw error;
+    }
 }
 
 document.getElementById('questionForm').onsubmit = async function (e) {
