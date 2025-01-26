@@ -11,13 +11,12 @@ async function getAnswer(question) {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                "Authorization": `Bearer ${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}`
             },
             body: JSON.stringify({ question }),
         });
 
         if (!response.ok) {
-            const errorText = await response.text();
-            console.error("Error status:", response.status, response.statusText, errorText);
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
