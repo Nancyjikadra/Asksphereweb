@@ -11,7 +11,7 @@ async function getAnswer(question) {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": "Bearer YOUR_TOKEN_HERE" // Replace with your actual token
+                "Authorization": "Bearer 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" // Replace with your actual token
             },
             body: JSON.stringify({ question }),
         });
