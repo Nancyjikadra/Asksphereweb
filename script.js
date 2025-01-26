@@ -7,20 +7,21 @@ function toggleTheme() {
 
 async function getAnswer(question) {
     try {
-        const response = await fetch("https://nxnccy-ask.hf.space/api/predict", {
+        const response = await fetch("https://nxnccy-ask.hf.space/jwt", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${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}`
             },
             body: JSON.stringify({ question }),
         });
 
         if (!response.ok) {
+            const errorText = await response.text();
+            console.error("Error details:", response.status, response.statusText, errorText);
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-
-        return await response.json();  
+        
+        return await response.json();
     } catch (error) {
         console.error("Fetch Error:", error);
         throw error;
