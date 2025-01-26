@@ -7,7 +7,7 @@ function toggleTheme() {
 
 async function getAnswer(question) {
     try {
-        const response = await fetch("https://nxnccy-ask.hf.space/api/predict", {
+        const response = await fetch("https://huggingface.co/spaces/nxnccy/ask/api/predict", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
