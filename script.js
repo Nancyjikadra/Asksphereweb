@@ -7,7 +7,7 @@ function toggleTheme() {
 
 async function getAnswer(question) {
     try {
-        const response = await fetch("https://huggingface.co/spaces/nxnccy/ask/api/predict", {
+        const response = await fetch("https://nxnccy-ask.hf.space/api/predict", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -16,13 +16,12 @@ async function getAnswer(question) {
         });
 
         if (!response.ok) {
-            console.error("Error status:", response.status, response.statusText);
-            throw new Error("Failed to fetch answer from the server.");
+            const errorText = await response.text();
+            console.error("Error status:", response.status, response.statusText, errorText);
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        const result = await response.json();
-        console.log("API Response:",result);
-        return result;  
+        return await response.json();  
     } catch (error) {
         console.error("Fetch Error:", error);
         throw error;
