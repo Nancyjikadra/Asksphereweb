@@ -7,10 +7,11 @@ function toggleTheme() {
 
 async function getAnswer(question) {
     try {
-        const response = await fetch("https://nxnccy-ask.hf.space/jwt", {
+        const response = await fetch("https://nxnccy-ask.hf.space/api/predict", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                "Authorization": "Bearer YOUR_TOKEN_HERE" // Replace with your actual token
             },
             body: JSON.stringify({ question }),
         });
