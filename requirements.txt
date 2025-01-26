@@ -1,9 +1,0 @@
-fastapi
-uvicorn
-transformers
-torch
-whisper
-sentence-transformers
-scikit-learn
-librosa
-huggingface_hub
