@@ -11,7 +11,7 @@ async function getAnswer(question) {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": "Bearer hf_jwt_eyJhbGciOiJFZERTQSJ9.eyJyZWFkIjp0cnVlLCJwZXJtaXNzaW9ucyI6eyJyZXBvLmNvbnRlbnQucmVhZCI6dHJ1ZSwiaW5mZXJlbmNlLnNlcnZlcmxlc3Mud3JpdGUiOmZhbHNlfSwib25CZWhhbGZPZiI6eyJraW5kIjoidXNlciIsIl9pZCI6IjY2NTM2ZTUzMzNmYzc0NDE1Mzk1ZmU1NCIsInVzZXIiOiJueG5jY3kiLCJpc1BybyI6ZmFsc2UsImlzRW50ZXJwcmlzZU1lbWJlciI6ZmFsc2V9LCJpYXQiOjE3Mzc5MDIwMDIsInN1YiI6Ii9zcGFjZXMvbnhuY2N5L2FzayIsImV4cCI6MTczNzkwMjE3NSwiaXNzIjoiaHR0cHM6Ly9odWdnaW5nZmFjZS5jbyJ9.fC1DYsEuLNe0-_xLDHkNQjG5E8YHQFG2L0nMeOqbU9SrTIetVv8o_nIrZm1V_NOOUqY0z0heSDM07uVIRHtjAA" // Replace with your actual token
+                 // Replace with your actual token
             },
             body: JSON.stringify({ question }),
         });
