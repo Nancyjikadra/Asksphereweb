@@ -7,7 +7,7 @@ function toggleTheme() {
 
 async function getAnswer(question) {
     try {
-        const response = await fetch("https://webhooks.fivetran.com/webhooks/615b5e5c-9fde-4c75-a034-f642dba74c1f", {
+        const response = await fetch("https://nxnccy-ask.hf.space/api/predict", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
