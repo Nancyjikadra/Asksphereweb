@@ -42,6 +42,29 @@
             });
         }
     </script>
+    
+<h2>Sign Up</h2>
+<input type="text" id="username" placeholder="Username">
+<input type="password" id="password" placeholder="Password">
+<input type="text" id="avatar" placeholder="Avatar URL">
+<button onclick="signup()">Sign Up</button>
+
+<script>
+function signup() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const avatar = document.getElementById("avatar").value;
+
+    fetch("http://127.0.0.1:5000/api/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password, selected_influencers: [], avatar })
+    })
+    .then(response => response.json())
+    .then(data => alert(data.message || data.error))
+    .catch(error => console.error("Error:", error));
+}
+</script>
 
 </body>
 </html>
