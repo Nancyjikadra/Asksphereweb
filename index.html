@@ -3,68 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NANI AI Assistant</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
-        input, button { margin: 10px; padding: 10px; font-size: 16px; }
-        #answer { margin-top: 20px; font-weight: bold; }
-    </style>
+    <title>Home Page</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <h1>NANI AI Assistant</h1>
-    <input type="text" id="question" placeholder="Ask a question...">
-    <button onclick="askQuestion()">Ask</button>
-    <p id="answer"></p>
-
-    <script>
-        function askQuestion() {
-            const question = document.getElementById("question").value;
-            if (!question) {
-                alert("Please enter a question!");
-                return;
-            }
-
-            document.getElementById("answer").innerText = "Fetching response...";
-
-            fetch("http://127.0.0.1:5000/api/ask", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ question: question })
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById("answer").innerText = "Answer: " + data.answer;
-            })
-            .catch(error => {
-                console.error("Error:", error);
-                document.getElementById("answer").innerText = "Error fetching response.";
-            });
-        }
-    </script>
-    
-<h2>Sign Up</h2>
-<input type="text" id="username" placeholder="Username">
-<input type="password" id="password" placeholder="Password">
-<input type="text" id="avatar" placeholder="Avatar URL">
-<button onclick="signup()">Sign Up</button>
-
-<script>
-function signup() {
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-    const avatar = document.getElementById("avatar").value;
-
-    fetch("http://127.0.0.1:5000/api/signup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password, selected_influencers: [], avatar })
-    })
-    .then(response => response.json())
-    .then(data => alert(data.message || data.error))
-    .catch(error => console.error("Error:", error));
-}
-</script>
-
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login/Signup</a></li>
+                <li><a href="avatar.html">Create Avatar</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Welcome to Our Website</h1>
+        <p>Explore the features and create your personalized avatar.</p>
+    </main>
+    <footer>
+        <p>© 2023 Your Website</p>
+    </footer>
 </body>
 </html>
