@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NANI - Chat</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>NANI AI Assistant</h1>
+    <input type="text" id="question" placeholder="Ask a question...">
+    <button onclick="askQuestion()">Ask</button>
+    <p id="answer"></p>
+
+    <script>
+        function askQuestion() {
+            const question = document.getElementById("question").value;
+            if (!question) {
+                alert("Please enter a question!");
+                return;
+            }
+
+            document.getElementById("answer").innerText = "Fetching response...";
+
+            fetch("http://127.0.0.1:5000/api/ask", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ question: question })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("answer").innerText = "Answer: " + data.answer;
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                document.getElementById("answer").innerText = "Error fetching response.";
+            });
+        }
+    </script>
+</body>
+</html>
