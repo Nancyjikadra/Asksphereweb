@@ -3,25 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>NANI AI</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="login.html">Login/Signup</a></li>
-                <li><a href="avatar.html">Create Avatar</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <h1>Welcome to Our Website</h1>
-        <p>Explore the features and create your personalized avatar.</p>
-    </main>
-    <footer>
-        <p>© 2023 Your Website</p>
-    </footer>
+    <div class="custom-cursor"></div>
+    
+    <nav class="navbar">
+        <h1 class="logo">NANI</h1>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="chatbot.html">Chatbot</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to NANI AI</h1>
+            <p>Discover AI-powered recommendations tailored just for you.</p>
+            <a href="chatbot.html" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <div class="parallax-layer sky"></div>
+    <div class="parallax-layer mountains-back"></div>
+    <div class="parallax-layer mountains-middle"></div>
+    <div class="parallax-layer mountains-front"></div>
+
+    <script src="script.js"></script>
 </body>
 </html>
+
+<style>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --theme-dark: #1A1F2C;
+  --theme-orange: #FF7B5A;
+  --theme-purple: #9381FF;
+}
+
+body {
+  background-color: var(--theme-dark);
+  color: white;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.btn {
+  background-color: var(--theme-orange);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.parallax-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+</style>
