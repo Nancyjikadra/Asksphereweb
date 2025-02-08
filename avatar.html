@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Avatar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login/Signup</a></li>
+                <li><a href="avatar.html">Create Avatar</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Create Your Avatar</h1>
+        <div id="avatarCreation">
+            <div id="avatarPreview"></div>
+            <button onclick="changeAvatar()">Change Avatar</button>
+        </div>
+        <h2>Select Keywords</h2>
+        <div id="keywords">
+            <button onclick="selectKeyword('diet')">Diet</button>
+            <button onclick="selectKeyword('fashion')">Fashion</button>
+            <button onclick="selectKeyword('fitness')">Fitness</button>
+            <button onclick="selectKeyword('mental health')">Mental Health</button>
+        </div>
+    </main>
+    <footer>
+        <p>© 2023 Your Website</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
