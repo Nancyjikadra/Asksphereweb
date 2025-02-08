@@ -1,282 +1,168 @@
-/* Base Styles and Theme Variables */
 :root {
     --theme-dark: #1A1F2C;
     --theme-orange: #FF7B5A;
     --theme-purple: #9381FF;
-    --mountain-dark: #2a1f3d;
-    --mountain-mid: #352244;
-    --mountain-front: #42294d;
 }
 
-/* Global Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    cursor: none;
-}
-
-body {
-    background-color: var(--theme-dark);
-    color: white;
-    overflow-x: hidden;
-    font-family: 'Space Grotesk', sans-serif;
 }
 
 html {
     scroll-behavior: smooth;
 }
 
-/* Parallax Effects */
-.parallax-layer {
-    will-change: transform;
-    transform-style: preserve-3d;
-    backface-visibility: hidden;
-    transition: transform 0.1s ease-out;
-}
-
-.parallax-container {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
+body {
+    background-color: var(--theme-dark);
+    color: white;
+    font-family: system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    min-height: 200vh;
 }
 
 /* Navigation Styles */
-.nav-container {
+.navbar {
     position: fixed;
-    width: 100%;
     top: 0;
-    z-index: 1000;
-    padding: 1.5rem 2rem;
-    background: rgba(26, 31, 44, 0.8);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
+    width: 100%;
+    z-index: 50;
+    background: linear-gradient(to bottom, rgba(26,31,44,0.8) 0%, transparent 100%);
+    backdrop-filter: blur(8px);
 }
 
 .nav-content {
-    max-width: 1400px;
+    max-width: 1280px;
     margin: 0 auto;
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* Hero Section */
-.hero-content {
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #CBD5E1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+/* Parallax Styles */
+.parallax-container {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.parallax-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    will-change: transform;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+.bg-layer .sky-gradient {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #2C1810 0%, var(--theme-dark) 100%);
+}
+
+.mountains-back,
+.mountains-middle,
+.mountains-front {
+    bottom: 0;
+    height: 66.666%;
+}
+
+.mountains-back svg,
+.mountains-middle svg,
+.mountains-front svg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Content Styles */
+.content-layer {
     position: absolute;
     inset: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     z-index: 10;
-}
-
-.hero-text {
     text-align: center;
-    animation: fadeIn 1s ease-out;
 }
 
-.hero-title {
-    font-size: 5rem;
+.content-layer h1 {
+    font-size: 6rem;
     font-weight: bold;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.1em;
     margin-bottom: 1rem;
 }
 
-.hero-description {
+.content-layer p {
     font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.8);
-    max-width: 32rem;
-    margin: 0 auto;
+    color: #CBD5E1;
+    max-width: 42rem;
+    margin: 0 auto 2rem;
 }
 
-/* Mountain Layers */
-.mountain-layer {
-    position: absolute;
-    width: 100%;
-    height: 66.666%;
-    bottom: 0;
-}
-
-.mountain-back {
-    fill: var(--mountain-dark);
-}
-
-.mountain-mid {
-    fill: var(--mountain-mid);
-}
-
-.mountain-front {
-    fill: var(--mountain-front);
-}
-
-/* Custom Cursor */
-.custom-cursor {
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--theme-orange);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    transition: transform 0.2s ease;
-}
-
-.custom-cursor.active {
-    transform: scale(1.5);
-}
-
-/* Button Styles */
-.primary-button {
+.cta-button {
     padding: 0.75rem 2rem;
     background-color: var(--theme-orange);
     color: white;
-    border-radius: 9999px;
     border: none;
-    font-weight: 600;
+    border-radius: 9999px;
+    font-size: 1rem;
+    cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-.primary-button:hover {
+.cta-button:hover {
     background-color: rgba(255, 123, 90, 0.9);
 }
 
-/* Adventure Cards */
-.cards-container {
-    display: flex;
-    gap: 2rem;
+/* Chat Page Styles */
+.chat-container {
+    max-width: 1280px;
+    margin: 6rem auto 2rem;
     padding: 2rem;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    min-height: calc(100vh - 8rem);
 }
 
-.cards-container::-webkit-scrollbar {
-    display: none;
+.chat-placeholder {
+    text-align: center;
+    padding: 4rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
 }
 
-.adventure-card {
-    flex: 0 0 300px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 2rem;
-    scroll-snap-align: start;
-    transition: transform 0.3s ease;
-}
-
-.adventure-card:hover {
-    transform: translateY(-10px);
-}
-
-/* Animation Keyframes */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
+/* Animation keyframes */
 @keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
 }
 
-/* Utility Classes */
 .animate-float {
     animation: float 6s ease-in-out infinite;
-}
-
-.animate-fade-in {
-    animation: fadeIn 1s ease-out;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 3rem;
-    }
-    
-    .hero-description {
-        font-size: 1rem;
-    }
-    
-    .adventure-card {
-        flex: 0 0 250px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 2rem;
-    }
-    
-    .nav-container {
-        padding: 1rem;
-    }
-}
-
-/* Gallery Section */
-.gallery-section {
-    padding: 4rem 2rem;
-}
-
-.gallery-item {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    opacity: 0;
-    transform: translateX(-50px);
-    transition: all 0.5s ease;
-}
-
-.gallery-item.visible {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-/* Auth Forms */
-.auth-container {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, var(--theme-dark), #2a334d);
-}
-
-.auth-form {
-    width: 100%;
-    max-width: 400px;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 3rem;
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-}
-
-/* Avatar Creation Page */
-.avatar-section {
-    min-height: 100vh;
-    padding: 6rem 2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-}
-
-.avatar-preview {
-    position: sticky;
-    top: 6rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 2rem;
 }
