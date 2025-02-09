@@ -7,12 +7,34 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="/" class="nav-logo">Gravity</a>
+            <div class="nav-links">
+                <a href="/adventures">Adventures</a>
+                <a href="/gallery">Gallery</a>
+                <a href="chatbot.html">Chat</a>
+            </div>
+        </div>
+    </nav>
+    <!--
     <h1>NANI AI Assistant</h1>
     <input type="text" id="question" placeholder="Ask a question...">
     <button onclick="askQuestion()">Ask</button>
-    <p id="answer"></p>
-
+    <p id="answer"></p>  
+-->
+    <div class="chat-container">
+        <div class="chat-box">
+            <h1 class="chat-title">NANI AI Assistant</h1>
+            <div class="chat-input-container">
+                <input type="text" id="question" placeholder="Ask a question...">
+                <button onclick="askQuestion()" class="chat-button">Ask</button>
+            </div>
+            <div class="chat-messages">
+                <p id="answer"></p>
+            </div>
+        </div>
+    </div>
     <script>
         function askQuestion() {
             const question = document.getElementById("question").value;
