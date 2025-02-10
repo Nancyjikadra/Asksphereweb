@@ -250,157 +250,89 @@ body {
 
 
 /* like,dislike,comment thing */
-<style>
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --theme-dark: #1A1F2C;
-  --theme-orange: #FF7B5A;
-  --theme-purple: #9381FF;
+/* Interaction Section Styles */
+.interaction-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
-body {
-  background-color: var(--theme-dark);
-  color: white;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
+.feedback-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.8);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1000;
+.feedback-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: #CBD5E1;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.logo {
-  font-size: 24px;
-  font-weight: bold;
+.like-btn:hover {
+    background: rgba(147, 129, 255, 0.1);
+    border-color: var(--theme-purple);
+    color: var(--theme-purple);
 }
 
-.nav-links {
-  list-style: none;
-  display: flex;
+.dislike-btn:hover {
+    background: rgba(255, 123, 90, 0.1);
+    border-color: var(--theme-orange);
+    color: var(--theme-orange);
 }
 
-.nav-links li {
-  margin: 0 15px;
+.feedback-btn.active {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
 }
 
-.nav-links a {
-  color: white;
-  text-decoration: none;
+.usefulness-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: #CBD5E1;
 }
 
-.hero {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  flex-direction: column;
+.usefulness-buttons {
+    display: flex;
+    gap: 0.5rem;
 }
 
-.hero-content h1 {
-  font-size: 3rem;
-  font-weight: bold;
+.usefulness-btn {
+    padding: 0.4rem 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: #CBD5E1;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.btn {
-  background-color: var(--theme-orange);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
+.useful-btn:hover {
+    background: rgba(242, 252, 226, 0.1);
+    border-color: #F2FCE2;
+    color: #F2FCE2;
 }
 
-.parallax-layer {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  will-change: transform;
-  transform-style: preserve-3d;
-  transition: transform 0.1s ease-out;
+.not-useful-btn:hover {
+    background: rgba(255, 222, 226, 0.1);
+    border-color: #FFDEE2;
+    color: #FFDEE2;
 }
 
-.chat-feedback {
-  text-align: center;
-  margin-top: 50px;
+.usefulness-btn.active {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
 }
-
-.feedback-buttons button {
-  background-color: var(--theme-orange);
-  border: none;
-  padding: 10px 15px;
-  margin: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.feedback-buttons button:hover {
-  background-color: #ff956f;
-}
-
-.comments-section {
-  max-width: 800px;
-  margin: 50px auto;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.comment-box textarea {
-  width: 100%;
-  height: 80px;
-  padding: 10px;
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  border: none;
-}
-
-.submit-comment {
-  display: block;
-  background-color: var(--theme-purple);
-  padding: 10px;
-  border: none;
-  color: white;
-  margin-top: 10px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.comments-list .comment {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 10px;
-  border-radius: 5px;
-  margin-top: 10px;
-}
-
-.reaction-buttons button {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 5px 10px;
-  border: none;
-  cursor: pointer;
-  margin: 5px;
-  border-radius: 5px;
-  color: white;
-}
-
-.badge {
-  background: var(--theme-orange);
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 12px;
-  margin-top: 5px;
-  display: inline-block;
-}
-</style>
