@@ -37,14 +37,15 @@
                 <p id="answer"></p>
                 <!--new-->
                 <div class="interaction-section">
-                    <div class="feedback-buttons">
-                        <button class="feedback-btn like-btn" onclick="handleLike()">
-                            <i data-lucide="thumbs-up"></i>
-                            <span class="like-count">0</span>
+                    <div class="feedback-hearts">
+                        <button class="heart-btn loved-btn" onclick="handleLove()">
+                            <i data-lucide="heart"></i>
                         </button>
-                        <button class="feedback-btn dislike-btn" onclick="handleDislike()">
-                            <i data-lucide="thumbs-down"></i>
-                            <span class="dislike-count">0</span>
+                        <button class="heart-btn liked-btn" onclick="handleLike()">
+                            <i data-lucide="heart"></i>
+                        </button>
+                        <button class="heart-btn disappointed-btn" onclick="handleDisappointed()">
+                            <i data-lucide="heart"></i>
                         </button>
                     </div>
                     <div class="usefulness-section">
