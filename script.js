@@ -13,49 +13,55 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Interaction functionality
-let likeCount = 0;
-let dislikeCount = 0;
-let usefulnessState = null;
+
+let currentFeedback = null;
+
+function handleLove() {
+    updateFeedback('loved');
+}
 
 function handleLike() {
-    const likeBtn = document.querySelector('.like-btn');
-    const dislikeBtn = document.querySelector('.dislike-btn');
-    const likeCountSpan = document.querySelector('.like-count');
-
-    if (likeBtn.classList.contains('active')) {
-        likeBtn.classList.remove('active');
-        likeCount--;
-    } else {
-        likeBtn.classList.add('active');
-        likeCount++;
-        if (dislikeBtn.classList.contains('active')) {
-            dislikeBtn.classList.remove('active');
-            dislikeCount--;
-            document.querySelector('.dislike-count').textContent = dislikeCount;
-        }
-    }
-    likeCountSpan.textContent = likeCount;
+    updateFeedback('liked');
 }
 
-function handleDislike() {
-    const likeBtn = document.querySelector('.like-btn');
-    const dislikeBtn = document.querySelector('.dislike-btn');
-    const dislikeCountSpan = document.querySelector('.dislike-count');
-
-    if (dislikeBtn.classList.contains('active')) {
-        dislikeBtn.classList.remove('active');
-        dislikeCount--;
-    } else {
-        dislikeBtn.classList.add('active');
-        dislikeCount++;
-        if (likeBtn.classList.contains('active')) {
-            likeBtn.classList.remove('active');
-            likeCount--;
-            document.querySelector('.like-count').textContent = likeCount;
-        }
-    }
-    dislikeCountSpan.textContent = dislikeCount;
+function handleDisappointed() {
+    updateFeedback('disappointed');
 }
+
+function updateFeedback(newFeedback) {
+    const lovedBtn = document.querySelector('.loved-btn');
+    const likedBtn = document.querySelector('.liked-btn');
+    const disappointedBtn = document.querySelector('.disappointed-btn');
+
+    // Reset all buttons
+    lovedBtn.classList.remove('active');
+    likedBtn.classList.remove('active');
+    disappointedBtn.classList.remove('active');
+
+    // If clicking the same button, deactivate it
+    if (currentFeedback === newFeedback) {
+        currentFeedback = null;
+        return;
+    }
+
+    // Set new feedback
+    currentFeedback = newFeedback;
+    
+    // Activate the clicked button
+    switch(newFeedback) {
+        case 'loved':
+            lovedBtn.classList.add('active');
+            break;
+        case 'liked':
+            likedBtn.classList.add('active');
+            break;
+        case 'disappointed':
+            disappointedBtn.classList.add('active');
+            break;
+    }
+}
+
+let usefulnessState = null;
 
 function markUseful() {
     const usefulBtn = document.querySelector('.useful-btn');
