@@ -147,6 +147,9 @@ body {
     margin: 6rem auto 2rem;
     padding: 2rem;
     min-height: calc(100vh - 8rem);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .chat-placeholder {
@@ -260,40 +263,59 @@ body {
     gap: 1.5rem;
 }
 
-.feedback-buttons {
+.feedback-hearts {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     justify-content: center;
 }
 
-.feedback-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 2rem;
-    background: rgba(255, 255, 255, 0.05);
-    color: #CBD5E1;
+.heart-btn {
+    background: none;
+    border: none;
     cursor: pointer;
-    transition: all 0.3s ease;
+    padding: 0.5rem;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    opacity: 0.5;
 }
 
-.like-btn:hover {
-    background: rgba(147, 129, 255, 0.1);
-    border-color: var(--theme-purple);
-    color: var(--theme-purple);
+.heart-btn:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
 }
 
-.dislike-btn:hover {
-    background: rgba(255, 123, 90, 0.1);
-    border-color: var(--theme-orange);
-    color: var(--theme-orange);
+.heart-btn.active {
+    transform: scale(1.2);
+    opacity: 1;
 }
 
-.feedback-btn.active {
-    background: rgba(255, 255, 255, 0.1);
-    transform: scale(1.05);
+.loved-btn svg {
+    stroke: #ea384c;
+    fill: transparent;
+    transition: fill 0.3s ease;
+}
+
+.loved-btn.active svg {
+    fill: #ea384c;
+}
+
+.liked-btn svg {
+    stroke: #0FA0CE;
+    fill: transparent;
+    transition: fill 0.3s ease;
+}
+
+.liked-btn.active svg {
+    fill: #0FA0CE;
+}
+
+.disappointed-btn svg {
+    stroke: #8E9196;
+    fill: transparent;
+    transition: fill 0.3s ease;
+}
+
+.disappointed-btn.active svg {
+    fill: #8E9196;
 }
 
 .usefulness-section {
@@ -330,6 +352,11 @@ body {
     background: rgba(255, 222, 226, 0.1);
     border-color: #FFDEE2;
     color: #FFDEE2;
+}
+
+.usefulness-btn.active {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
 }
 
 .usefulness-btn.active {
