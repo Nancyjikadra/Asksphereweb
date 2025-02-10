@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,3 +64,88 @@
     <script src="script.js"></script>
 </body>
 </html>
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NANI - The heart of mom</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="/" class="nav-logo">NANI</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="chatbot.html">Chat</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="chat-container">
+        <div class="chat-box">
+            <h1 class="chat-title">NANI AI Assistant</h1>
+            <div class="chat-input-container">
+                <input type="text" id="question" placeholder="Ask a question...">
+                <button onclick="askQuestion()" class="chat-button">Ask</button>
+            </div>
+            <div class="chat-messages">
+                <p id="answer"></p>
+                <div class="feedback-buttons">
+                    <button class="like-btn">👍 Like</button>
+                    <button class="dislike-btn">👎 Dislike</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="eye-section">
+        <h2>User Eye (Feedback & Tips)</h2>
+        <div class="eye-box">
+            <textarea placeholder="Share your experience, tips, or problems..."></textarea>
+            <button class="submit-eye">Post</button>
+        </div>
+        <div class="eye-list">
+            <div class="eye-comment">
+                <p><strong>User123</strong>: This tip really helped me improve my skincare routine!</p>
+                <div class="reaction-buttons">
+                    <button class="useful-btn">✅ Useful</button>
+                    <button class="not-useful-btn">❌ Not Useful</button>
+                </div>
+                <span class="badge">🌟 Expert Contributor</span>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function askQuestion() {
+            const question = document.getElementById("question").value;
+            if (!question) {
+                alert("Please enter a question!");
+                return;
+            }
+
+            document.getElementById("answer").innerText = "Fetching response...";
+
+            fetch("http://127.0.0.1:5000/api/ask", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ question: question })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("answer").innerText = "Answer: " + data.answer;
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                document.getElementById("answer").innerText = "Error fetching response.";
+            });
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
+
