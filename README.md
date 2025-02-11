@@ -1,1 +1,1 @@
-This is website code of @Asksphere
+This is website code of <https://github.com/Nancyjikadra/AskSphere>
